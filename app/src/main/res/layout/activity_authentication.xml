@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AuthenticationActivity">
+
+    <!-- Login Layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clLogIn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_gradiant"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvLIHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:paddingVertical="10dp"
+            android:text="@string/log_in_header"
+            android:textAlignment="center"
+            android:textColor="#FFFFE3"
+            android:textSize="50sp"
+            app:layout_constraintBottom_toTopOf="@+id/logInLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Log In Layout -->
+        <LinearLayout
+            android:id="@+id/logInLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/rounded_corner_box"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:orientation="vertical"
+
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.65"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.9">
+
+            <TextView
+                android:id="@+id/tvLIEmailID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/email"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+
+            <EditText
+                android:id="@+id/etLIEmailID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:fontFamily="@font/poppins_regular"
+                android:inputType="textEmailAddress"
+                android:labelFor="@id/etLIEmailID"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/tvLIMobileNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/mobile_no"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+
+            <EditText
+                android:id="@+id/etLIMobileNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:fontFamily="@font/poppins_regular"
+                android:inputType="number"
+                android:labelFor="@id/tvLIMobileNo"
+                android:maxLength="10"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/tvLIPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/password"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                app:boxBackgroundColor="@android:color/transparent"
+                app:boxBackgroundMode="filled"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etLIPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnLILogIn"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:backgroundTint="@color/violet_purple"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+                android:text="@string/log_in"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="@string/tvNoAccountMessage"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btnLISignIn"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/violet_purple"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+                android:text="@string/sign_in"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Sign-in Layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_gradiant"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="visible">
+
+
+        <!-- Sign-in Layout -->
+        <TextView
+            android:id="@+id/tvSIHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:paddingVertical="10dp"
+            android:text="@string/sign_in_header"
+            android:textAlignment="center"
+            android:textColor="#FFFFE3"
+            android:textSize="50sp"
+            app:layout_constraintBottom_toTopOf="@+id/signInLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/signInLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/rounded_corner_box"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:orientation="vertical"
+
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.75"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSIHeader"
+            app:layout_constraintWidth_percent="0.9">
+
+            <TextView
+                android:id="@+id/tvSIName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/name"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+
+            <EditText
+                android:id="@+id/etSIName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:fontFamily="@font/poppins_regular"
+                android:inputType="text"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                tools:ignore="VisualLintTextFieldSize" />
+
+            <TextView
+                android:id="@+id/tvSIEmailID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/email"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+
+            <EditText
+                android:id="@+id/etSIEmailID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:fontFamily="@font/poppins_regular"
+                android:inputType="textEmailAddress"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                tools:ignore="VisualLintTextFieldSize" />
+
+            <TextView
+                android:id="@+id/tvSIMobileNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/mobile_no"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+
+            <EditText
+                android:id="@+id/etSIMobileNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:fontFamily="@font/poppins_regular"
+                android:inputType="number"
+                android:maxLength="10"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                tools:ignore="VisualLintTextFieldSize" />
+
+            <TextView
+                android:id="@+id/tvSIPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/password"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                app:boxBackgroundColor="@android:color/transparent"
+                app:boxBackgroundMode="filled"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:labelFor="@id/tvSIPassword"
+                    tools:ignore="VisualLintTextFieldSize" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnSISignIn"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:backgroundTint="@color/violet_purple"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+                android:text="@string/sign_in"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btnSILogIn"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/violet_purple"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+                android:text="@string/log_in"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

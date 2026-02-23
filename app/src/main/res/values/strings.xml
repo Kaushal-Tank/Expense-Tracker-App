@@ -1,0 +1,35 @@
+<resources>
+    <!-- Application Name -->
+    <string name="app_name">Expense App</string>
+
+    <!-- Text View and Buttons Names -->
+    <string name="email">Email</string>
+    <string name="mobile_no">Mobile No</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="resent_transaction_text">Resent Transaction</string>
+    <string name="sign_in">Sign-In</string>
+    <string name="log_in">Log In</string>
+    <string name="add_bill">Add Bill</string>
+    <string name="amount">Amount</string>
+
+    <!-- Headers -->
+    <string name="add_expenses">Add Expense</string>
+    <string name="sign_in_header">Sign In</string>
+    <string name="log_in_header">Log In</string>
+
+    <!-- Messages -->
+    <string name="tvNoAccountMessage">Don\'t Have account?</string>
+    <string name="tv_no_resent_transaction_msg">No Resent Transaction</string>
+    <string name="detail_about_spending">Where you pay bill?</string>
+
+    <!-- Content Description -->
+    <string name="user_profile">User Profile</string>
+    <string name="add_new_payment">Add New Payment</string>
+    <string name="profile_sign_in_login">Sign-in / LogIn</string>
+    <string name="value">value</string>
+    <string name="rupee">₹</string>
+    <string name="date">date</string>
+    <string name="header">Header</string>
+
+</resources>

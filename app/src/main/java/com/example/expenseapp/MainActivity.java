@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     /* Declaration of Resources */
 
     ArrayList<Transaction> transactionList = new ArrayList<>();
-    ;  // Store transactions
+      // Store transactions
     TransactionAdapter adapter;
     private ActivityResultLauncher<Intent> addExpenseLauncher;
 

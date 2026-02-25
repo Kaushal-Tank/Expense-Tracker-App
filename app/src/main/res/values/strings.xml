@@ -31,5 +31,6 @@
     <string name="rupee">₹</string>
     <string name="date">date</string>
     <string name="header">Header</string>
+    <string name="default_value">0</string>
 
 </resources>

@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_semibold"
-        android:text="-"
+        android:text="0"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="75sp"
@@ -83,7 +83,8 @@
             android:layout_width="351dp"
             android:layout_height="170dp"
             tools:layout_editor_absoluteX="61dp"
-            tools:layout_editor_absoluteY="280dp" />
+            tools:layout_editor_absoluteY="280dp"
+            android:layout_gravity="center"/>
 
     </LinearLayout>
 

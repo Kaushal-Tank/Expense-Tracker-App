@@ -28,10 +28,12 @@ public class AddExpenseActivity extends AppCompatActivity {
             }
 
             // Send Expense Details to Main Activity
-            Intent sendExpenseDetail = new Intent(AddExpenseActivity.this, MainActivity.class);
-            sendExpenseDetail.putExtra("description",expenseDetail);
-            sendExpenseDetail.putExtra("amount",amount);
-            startActivity(sendExpenseDetail);
+            Intent resultIntent = new Intent(AddExpenseActivity.this, MainActivity.class);
+            resultIntent.putExtra("description",expenseDetail);
+            resultIntent.putExtra("amount",amount);
+
+            setResult(RESULT_OK, resultIntent);
+            finish();
         });
     }
 }

@@ -10,6 +10,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,15 +24,40 @@ public class MainActivity extends AppCompatActivity {
 
     /* Declaration of Resources */
 
-    ArrayList<Transaction> transactionList;  // Store transactions
+    ArrayList<Transaction> transactionList = new ArrayList<>();
+    ;  // Store transactions
     TransactionAdapter adapter;
+    private ActivityResultLauncher<Intent> addExpenseLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        transactionList = new ArrayList<>();
+
+        addExpenseLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+
+                Intent data = result.getData();
+
+                String description = data.getStringExtra("description");
+                double amount = data.getDoubleExtra("amount", 0.0);
+
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+
+                String formattedDateTime = LocalDateTime.now().format(formatter);
+
+                Transaction newTransaction = new Transaction(description, amount, formattedDateTime);
+                transactionList.add(newTransaction);
+                adapter.notifyItemInserted(transactionList.size() - 1);
+
+                updateTotalAmount();
+            }
+        });
+
+
+        RecyclerView recycleView = findViewById(R.id.recycleListView);
+        TextView tvRecentTransactionMessage = findViewById(R.id.tvNoTransactionMessage);
 
         /* Click Listener on Profile button */
         Button btProfile = findViewById(R.id.btnUserProfile);
@@ -43,32 +70,29 @@ public class MainActivity extends AppCompatActivity {
         ImageButton btAddBill = findViewById(R.id.btnAddTransaction);
         btAddBill.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, AddExpenseActivity.class);
-            startActivity(intent);
+            addExpenseLauncher.launch(intent);
         });
 
-        Intent getExpenseDetail = getIntent();
-        String description = getExpenseDetail.getStringExtra("description");
-        if (description == null) description = "No Description";
-        Double amount = getExpenseDetail.getDoubleExtra("amount", 0.0);
 
+        // Show Transaction Box
+        recycleView.setVisibility(VISIBLE);
+        tvRecentTransactionMessage.setVisibility(GONE);
+        adapter = new TransactionAdapter(transactionList);
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-        String formattedDateTime = LocalDateTime.now().format(formatter);
-        transactionList.add(new Transaction(description, amount, formattedDateTime));
+        recycleView.setLayoutManager(new LinearLayoutManager(this));
+        recycleView.setAdapter(adapter);
 
-        RecyclerView recycleView = findViewById(R.id.recycleListView);
-        TextView tvRecentTransactionMessage = findViewById(R.id.tvNoTransactionMessage);
-        if (transactionList.isEmpty()) {
-            tvRecentTransactionMessage.setVisibility(VISIBLE);
-            recycleView.setVisibility(GONE);
+    }
 
-        } else {
-            recycleView.setVisibility(VISIBLE);
-            tvRecentTransactionMessage.setVisibility(GONE);
-            adapter = new TransactionAdapter(transactionList);
+    private void updateTotalAmount() {
 
-            recycleView.setLayoutManager(new LinearLayoutManager(this));
-            recycleView.setAdapter(adapter);
+        double sumOfAmount = 0.0;
+
+        for (Transaction t : transactionList) {
+            sumOfAmount += t.getAmount();
         }
+
+        TextView tvAmount = findViewById(R.id.tvAmount);
+        tvAmount.setText(String.valueOf(sumOfAmount));
     }
 }

@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         NumberFormat formatter = NumberFormat.getCurrencyInstance(new Locale("en","IN"));
 
         TextView tvAmount = findViewById(R.id.tvAmount);
-        tvAmount.setText(String.valueOf(formatter.format(sumOfAmount)));
+        tvAmount.setText(formatter.format(sumOfAmount));
     }
 
     private void updateUI() {

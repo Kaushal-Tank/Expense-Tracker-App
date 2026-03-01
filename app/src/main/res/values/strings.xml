@@ -32,5 +32,6 @@
     <string name="date">date</string>
     <string name="header">Header</string>
     <string name="default_value">0</string>
+    <string name="in_this_month_message">In this Month</string>
 
 </resources>

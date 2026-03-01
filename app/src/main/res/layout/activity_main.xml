@@ -49,15 +49,15 @@
         app:layout_constraintTop_toBottomOf="@+id/tvDate" />
 
     <TextView
-        android:id="@+id/recentTransactionHeader"
+        android:id="@+id/tvPer_month_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="50dp"
-        android:text="@string/resent_transaction_text"
+        android:text="@string/in_this_month_message"
         android:textColor="@color/grey"
-        android:textSize="20sp"
+        android:textSize="25sp"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvAmount" />
 
@@ -65,24 +65,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/btnAddTransaction"
-        app:layout_constraintTop_toBottomOf="@+id/recentTransactionHeader"
         app:flow_horizontalAlign="center"
-        app:flow_verticalAlign="center">
+        app:flow_verticalAlign="center"
+        android:layout_marginTop="45dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddTransaction"
+        app:layout_constraintTop_toBottomOf="@+id/tvPer_month_message">
 
         <TextView
             android:id="@+id/tvNoTransactionMessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/tv_no_resent_transaction_msg"
-            android:textSize="30sp"
             android:textAlignment="center"
-            android:textColor="@color/grey" />
+            android:textColor="@color/grey"
+            android:textSize="30sp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleListView"
             android:layout_width="351dp"
-            android:layout_height="341dp"
+            android:layout_height="329dp"
             android:layout_gravity="center"
             android:fadeScrollbars="false"
             android:scrollbars="vertical"

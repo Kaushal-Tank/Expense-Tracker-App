@@ -16,9 +16,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.NumberFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -94,8 +96,10 @@ public class MainActivity extends AppCompatActivity {
             sumOfAmount += t.getAmount();
         }
 
+        NumberFormat formatter = NumberFormat.getCurrencyInstance(new Locale("en","IN"));
+
         TextView tvAmount = findViewById(R.id.tvAmount);
-        tvAmount.setText(String.valueOf(sumOfAmount));
+        tvAmount.setText(String.valueOf(formatter.format(sumOfAmount)));
     }
 
     private void updateUI() {

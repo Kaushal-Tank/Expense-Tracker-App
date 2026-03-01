@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     /* Declaration of Resources */
 
     ArrayList<Transaction> transactionList = new ArrayList<>();
-      // Store transactions
+    // Store transactions
     TransactionAdapter adapter;
     private ActivityResultLauncher<Intent> addExpenseLauncher;
 
@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 adapter.notifyItemInserted(transactionList.size() - 1);
 
                 updateTotalAmount();
+                updateUI();
             }
         });
 
@@ -81,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
         recycleView.setLayoutManager(new LinearLayoutManager(this));
         recycleView.setAdapter(adapter);
+        updateUI();
 
     }
 
@@ -94,5 +96,18 @@ public class MainActivity extends AppCompatActivity {
 
         TextView tvAmount = findViewById(R.id.tvAmount);
         tvAmount.setText(String.valueOf(sumOfAmount));
+    }
+
+    private void updateUI() {
+        RecyclerView recyclerView = findViewById(R.id.recycleListView);
+        TextView textView = findViewById(R.id.tvNoTransactionMessage);
+
+        if (transactionList.isEmpty()){
+            recyclerView.setVisibility(GONE);
+            textView.setVisibility(VISIBLE);
+        } else {
+            recyclerView.setVisibility(VISIBLE);
+            textView.setVisibility(GONE);
+        }
     }
 }

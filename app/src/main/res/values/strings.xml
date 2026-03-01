@@ -20,7 +20,7 @@
 
     <!-- Messages -->
     <string name="tvNoAccountMessage">Don\'t Have account?</string>
-    <string name="tv_no_resent_transaction_msg">No Resent Transaction</string>
+    <string name="tv_no_resent_transaction_msg">No Resent Transaction!!!</string>
     <string name="detail_about_spending">Where you pay bill?</string>
 
     <!-- Content Description -->

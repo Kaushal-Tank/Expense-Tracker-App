@@ -75,16 +75,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/tv_no_resent_transaction_msg"
-            android:textSize="15sp"
-            android:visibility="gone" />
+            android:textSize="30sp"
+            android:textAlignment="center"
+            android:textColor="@color/grey" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleListView"
             android:layout_width="351dp"
-            android:layout_height="170dp"
+            android:layout_height="341dp"
+            android:layout_gravity="center"
+            android:fadeScrollbars="false"
+            android:scrollbars="vertical"
             tools:layout_editor_absoluteX="61dp"
-            tools:layout_editor_absoluteY="280dp"
-            android:layout_gravity="center"/>
+            tools:layout_editor_absoluteY="280dp" />
 
     </LinearLayout>
 

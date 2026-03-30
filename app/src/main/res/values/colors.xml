@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="charcoal_slate_blue">#334155</color>
+    <color name="cold_steel">#334155</color>
+    <color name="dark_knight">#0F172A</color>
+    <color name="slate_blue_gray">#55657A</color>
+    <color name="indigo_600">#4F46E5</color>
+</resources>

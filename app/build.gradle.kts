@@ -3,7 +3,7 @@ import org.gradle.kotlin.dsl.implementation
 plugins {
     alias(libs.plugins.android.application)
 
-    id ("com.google.gms.google-services")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -54,11 +54,11 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     /* Firebase Dependency */
-    // Import the Firebase BoM
-    implementation (platform(libs.firebase.bom))
     // When using the BoM, don't specify versions in Firebase dependencies
-    implementation (libs.firebase.analytics)
-
-    implementation(libs.firebase.firestore)
+    // Import the Firebase BoM
+    implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
+    // When using the BoM, don't specify versions in Firebase dependencies
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-firestore")
 
 }

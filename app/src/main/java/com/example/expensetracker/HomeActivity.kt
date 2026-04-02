@@ -2,10 +2,12 @@ package com.example.expensetracker
 
 import android.os.Bundle
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.expensetracker.model.UserRepo
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,16 +20,21 @@ class HomeActivity : AppCompatActivity() {
             insets
         }
 
-        // Call Class for run data query
-        val dataQuery = FunctionsForData()
-        /*  ------------------------------------------------------------------------------  */
+        /* ---------- Initialize Classes  ---------- */
+        val userRepo = UserRepo()
 
-
-
-        /* For Profile Button */
-        // Get Name for Profile
+        /* ---------- Set name and balance in card ---------- */
         val userName = findViewById<TextView>(R.id.tvUserName)
+        val balance = findViewById<TextView>(R.id.tvBalance)
 
-
+        userRepo.getUserData(
+            onSuccess = { user ->
+                userName.text = user.name
+                balance.text = user.balance.toString()
+            },
+            onFailer = {
+                Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+            }
+        )
     }
 }
